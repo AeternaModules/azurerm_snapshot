@@ -32,9 +32,9 @@ EOT
     resource_group_name           = string
     disk_access_id                = optional(string)
     disk_size_gb                  = optional(number)
-    incremental_enabled           = optional(bool, false)
-    network_access_policy         = optional(string, "AllowAll")
-    public_network_access_enabled = optional(bool, true)
+    incremental_enabled           = optional(bool)   # Default: false
+    network_access_policy         = optional(string) # Default: "AllowAll"
+    public_network_access_enabled = optional(bool)   # Default: true
     source_resource_id            = optional(string)
     source_uri                    = optional(string)
     storage_account_id            = optional(string)
