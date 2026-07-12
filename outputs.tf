@@ -1,3 +1,7 @@
+output "snapshots_id" {
+  description = "Map of id values across all snapshots, keyed the same as var.snapshots"
+  value       = { for k, v in azurerm_snapshot.snapshots : k => v.id }
+}
 output "snapshots_create_option" {
   description = "Map of create_option values across all snapshots, keyed the same as var.snapshots"
   value       = { for k, v in azurerm_snapshot.snapshots : k => v.create_option }
