@@ -16,7 +16,7 @@ output "snapshots_disk_size_gb" {
 }
 output "snapshots_encryption_settings" {
   description = "Map of encryption_settings values across all snapshots, keyed the same as var.snapshots"
-  value       = { for k, v in azurerm_snapshot.snapshots : k => v.encryption_settings if v.encryption_settings != null && length(v.encryption_settings) > 0 }
+  value       = { for k, v in azurerm_snapshot.snapshots : k => one(v.encryption_settings) if v.encryption_settings != null && length(v.encryption_settings) > 0 }
 }
 output "snapshots_incremental_enabled" {
   description = "Map of incremental_enabled values across all snapshots, keyed the same as var.snapshots"
